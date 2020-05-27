@@ -1,0 +1,30 @@
+{
+  "parser":  "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": ["@typescript-eslint", "react"],
+  "env":{                         
+      "browser": true
+  },
+  "settings": {
+      "react": {
+          "version": "detect"
+      }
+  }, 
+  "parserOptions": { 
+      "ecmaVersion": 2020,
+      "sourceType": "module",
+      "ecmaFeatures":{
+          "jsx":true
+      }
+  },
+  "rules": {
+    "@typescript-eslint/interface-name-prefix": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/camelcase": 0,
+    "@typescript-eslint/no-empty-function": 1,
+    "@typescript-eslint/explicit-function-return-type": 0
+  }
+}
+
