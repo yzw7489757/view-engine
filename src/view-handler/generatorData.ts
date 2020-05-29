@@ -1,4 +1,4 @@
-import isEmpty from 'lodash'
+import isEmpty from 'lodash/isEmpty'
 import { IViewData, ViewEngineProps } from '../interface';
 import { isObject } from '../utils/index';
 

@@ -1,12 +1,15 @@
+import React from 'react'
 import { Input, Select, Button, Tag, InputNumber } from 'antd'
+import input from './input'
 
 const { TextArea } = Input;
 
 export default {
-  input: Input,
+  input,
   select: Select,
   button: Button,
   textarea: TextArea,
   tag: Tag,
-  inputnumber: InputNumber
+  inputnumber: InputNumber,
+  text: ({ value }) => (<span>{value}</span>)
 }

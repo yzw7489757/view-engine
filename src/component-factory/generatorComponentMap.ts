@@ -35,8 +35,8 @@ function generatorComponentMap<T extends Record<string, React.ReactNode>>(custom
       let _Com = baseComponent[componentName];
 
       // 注入属性和事件注入到实例化组件
-      _Com = injectToInstantiatedCom(_Com, eventHandler, itemProps)
-      
+      _Com = injectToInstantiatedCom(_Com, {...eventHandler, ...itemProps })
+      return _Com
     }
   })
 

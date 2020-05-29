@@ -28,7 +28,8 @@ export interface IViewDataItem {
   type?: string,
   label?: string,
   props?: IViewDataItemProps & Record<string, any>,
-  children?: IViewData
+  children?: IViewData,
+  hidden?: boolean
 }
 
 export interface IViewDataItemProps {
@@ -38,7 +39,25 @@ export interface IViewDataItemProps {
   style?: Record<string, string>,
 }
 
-export type IViewLayout = string[] 
+// type Recursive<T> = | T | Array<Recursive<T>>;
+
+// type Flatten<T> = T extends Recursive<infer R> ? R : never;
+
+// declare function flatInfinity<T>(xs: ReadonlyArray<T>): Flatten<T>
+
+// flatInfinity([1, [2, 3], [[4, [true]], { abc: 'efg' }], ''])
+
+type RecursiveArray<T> = Array<T | RecursiveArray<T>>;
+interface ArrayLike<T> {
+ readonly length: number
+ readonly [n: number]: T
+}
+
+type RecursiveArraysList<T> = ArrayLike<T | RecursiveArray<T>>
+
+export type IViewLayout = RecursiveArraysList<string>
+
+// const viewLayout:IViewLayout = [['a',['a']],'a',false]
 
 export interface DiffViewData {
   value: any;
@@ -47,4 +66,14 @@ export interface DiffViewData {
 }
 
 export type IEventHandler = (id: string, diffs: DiffViewData, componentName: string, itemProps: IViewDataItemProps) => void
+
+
+export interface LayoutSchema {
+  title: string,
+  name?: string,
+  span: number,
+  className: string;
+  children?: LayoutSchema[],
+}
+
 

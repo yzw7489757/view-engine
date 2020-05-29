@@ -1,0 +1,16 @@
+.view-element{
+  display: flex;
+  .view-label{
+    position: relative;
+    min-width: 80px;
+    text-align: left;
+    margin-right: 8px;
+    color: #999;
+    &:empty {
+      display: none;;
+    }
+  }
+  .view-content{
+    flex: 1;
+  }
+}

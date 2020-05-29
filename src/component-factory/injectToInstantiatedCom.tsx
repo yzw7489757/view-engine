@@ -2,10 +2,8 @@ import React, { isValidElement, cloneElement } from "react"
 
 function injectToInstantiatedCom(
   _Com: React.SFC | React.FC | React.StatelessComponent | React.ReactNode, 
-  eventHandler: Record<string, (...args: any[]) => any>, 
-  itemProps: any
+  props: Record<string, any>, 
 ) {
-  const props = Object.assign(eventHandler, itemProps)
   if(isValidElement(_Com)) {
     return cloneElement(_Com, { ...props }); // 实例组件 <Component/>
   } else if(isClassComponent(_Com)){ // class组件
@@ -16,6 +14,8 @@ function injectToInstantiatedCom(
     }catch(e){
       return <_Com {...props} />
     }
+  } else if(typeof _Com === 'function') {
+    return _Com(props)
   }
 
   return null
