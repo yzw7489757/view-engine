@@ -1,4 +1,4 @@
-import presetComponents from '../components/index'
+import * as presetComponents from '../components/index'
 import { IEventsMap, DiffViewData } from '../interface';
 import injectToInstantiatedCom from './injectToInstantiatedCom';
 
@@ -11,7 +11,7 @@ function InjectEvents (componentName: string, itemProps, eventHandleMap: IEvents
       handleChange(id, { value: v }, componentName, itemProps);
     },
     onClick: function(e: React.MouseEvent<HTMLElement>) {
-      const v = (typeof e === 'object' && e.target) ? (e.target as any).value : e
+      const v = (typeof e === 'object' && e.target && e.clientX && e.clientY) ? e.target : e
       handleClick(id, { value: v }, componentName, itemProps);
     },
     onSubmit: function(diffs: DiffViewData) {

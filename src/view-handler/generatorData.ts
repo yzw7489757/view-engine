@@ -13,6 +13,7 @@ const generatorViewMap = (viewData: IViewData, props: ViewEngineProps):IViewData
 
     viewMap[key] = {
       ...viewData[key],
+      id: key,
       props: {
         ...fieldProps,
         disabled: disabled || fieldDisabled

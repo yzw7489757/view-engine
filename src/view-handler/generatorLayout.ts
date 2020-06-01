@@ -10,8 +10,9 @@ function generatorLayout(viewMap: IViewData, viewLayout: IViewLayout, props: Vie
   if (!isEmpty(viewLayout)) { // 指定了viewLayout
     layout = generatorSpecifyLayout(viewLayout, viewMap, props)
   } else { // 未指定，自动生成
-    layout = generatorAutoLayout(viewLayout, viewMap, props)
+    layout = generatorAutoLayout(props.viewData, viewMap, props)
   }
+  console.log('layout: ', layout);
   return layout
 }
 

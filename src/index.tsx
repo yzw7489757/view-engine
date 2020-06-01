@@ -4,6 +4,7 @@ import { IEventsMap, IEventHandler, IViewData, ViewEngineProps } from './interfa
 import generatorLayout from './view-handler/generatorLayout';
 import generatorViewMap from './view-handler/generatorData';
 import Renderer from './renderer/index';
+import handleViewData from './utils/handleViewData';
 
 class ViewEngine extends React.Component<ViewEngineProps, {
   componentsMap: Record<string, React.ReactNode>,
@@ -56,10 +57,11 @@ class ViewEngine extends React.Component<ViewEngineProps, {
 
   render() {
     const { componentsMap, resetKey } = this.state
-    const { className, style, viewData, viewLayout } = this.props
+    const { className, style, viewData: _viewData, viewLayout } = this.props
+    const viewData = handleViewData(_viewData)
     this.viewMap = generatorViewMap(viewData, this.props);
     console.log('this.viewMap: ', this.viewMap);
-    this.layout = generatorLayout(this.viewMap, viewLayout, this.props)
+    this.layout = generatorLayout(this.viewMap, viewLayout, {...this.props, viewData})
     console.log('layout: ',this.layout);
     return (
       <div key={resetKey} className={`view-engine ${className}`} style={style}>

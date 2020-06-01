@@ -4,29 +4,29 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import Demo from '../src/index'
 
 ReactDOM.render(<Demo 
-  viewLayout={
-    [
-      [
-        'field1{6}', 
-        'field2', 
-        'field3', 
-        [
-          'field4{10}', 'field5', 'field4'
-        ]
-      ],
-      ['field2, field1, field4']
-    ]
-  }
+  // viewLayout={
+  //   [
+  //     [
+  //       'field1{6}', 
+  //       'field2', 
+  //       'field3', 
+  //       [
+  //         'field4{10}', 'field5', 'field4'
+  //       ]
+  //     ],
+  //     ['field2, field1, field4']
+  //   ]
+  // }
   viewData={{
     field1: {
       type: 'input',
       label: '123',
+      span: 6,
       props: {
         value: '12345'
       }
     },
     field2: {
-      type: 'select',
       label: '456',
       children: {
         field3: {
@@ -51,5 +51,45 @@ ReactDOM.render(<Demo
           }
         }
       }
-    }
+    },
+    field6: {
+      type: 'select',
+      label: 'label_field6',
+      props: {
+        value: 1,
+        options: [
+          { value: 1, label: 'hahahhaha'},
+          { value: 2, label: 'dzzzzz'},
+        ]
+      },
+    },
+    field7: {
+      type: 'textarea',
+      label: 'label_field7',
+      props: {
+        value: '123131231',
+      },
+    },
+    field8: {
+      type: 'tag',
+      label: 'label_field8',
+      props: {
+        value: '123123123',
+        style: {},
+      },
+    },
+    field9: {
+      type: 'inputNumber',
+      label: 'label_field9',
+      props: {
+        value: 123,
+      },
+    },
+    field10: {
+      type: 'button',
+      label: 'label_field10',
+      props: {
+        value: 'button',
+      },
+    },
 }}></Demo>, document.getElementById('root'))

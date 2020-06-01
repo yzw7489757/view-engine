@@ -1,4 +1,5 @@
 import noop from 'lodash/noop';
+import * as presetComponents from './components/index'
 
 export class ViewEngineProps {
   public onClick: (...args: any[]) => void = noop
@@ -25,8 +26,10 @@ export interface IViewData {
 
 export interface IViewDataItem {
   id?: string,
-  type?: string,
+  type?: keyof typeof presetComponents | string,
   label?: string,
+  customLabel?: (props: IViewDataItem) => React.ReactNode;
+  span?: number,
   props?: IViewDataItemProps & Record<string, any>,
   children?: IViewData,
   hidden?: boolean
@@ -36,7 +39,8 @@ export interface IViewDataItemProps {
   value?: string | number | undefined | Array<string | number>,
   disable?: boolean;
   className?: string,
-  style?: Record<string, string>,
+  style?: React.CSSProperties,
+  options?: Array<Record<string, string | number>>
 }
 
 // type Recursive<T> = | T | Array<Recursive<T>>;
@@ -69,8 +73,9 @@ export type IEventHandler = (id: string, diffs: DiffViewData, componentName: str
 
 
 export interface LayoutSchema {
-  title: string,
-  name?: string,
+  title: string | React.ReactNode,
+  label: string,
+  name: string | null,
   span: number,
   className: string;
   children?: LayoutSchema[],

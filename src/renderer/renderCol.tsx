@@ -7,7 +7,6 @@ import isEmpty from 'lodash/isEmpty';
 
 
 const RenderCol: IRenderCol = (props) => {
-  // console.log('props: ', props);
   const { data, colIndex, RenderRow, ...resetProps } = props;
   return (
     <Col key={colIndex} span={data.span} className={`${data.className} col-${data.name}`}>

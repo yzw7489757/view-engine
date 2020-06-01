@@ -1,13 +1,13 @@
 import React from 'react';
 import { Input } from 'antd';
+import { IInput } from './interface';
 
-const input:React.SFC<any> = (props) => {
-  const { value, onChange, ...resetProps } = props;
+export const input:React.SFC<IInput> = (props) => {
+  const { value, onChange, className, id, type, ...resetProps } = props;
   return <Input
     defaultValue={value}
     onChange={onChange}
+    className={`view-engine-input component-input-${id || type} ${className || ''}`}
     {...resetProps}
   />
 }
-
-export default input

@@ -1,3 +1,5 @@
+@import '../components/index.less';
+
 .view-element{
   display: flex;
   .view-label{
@@ -6,6 +8,7 @@
     text-align: left;
     margin-right: 8px;
     color: #999;
+    align-self: center;
     &:empty {
       display: none;;
     }
@@ -13,4 +16,7 @@
   .view-content{
     flex: 1;
   }
+}
+.view-engine-field{
+  margin-bottom: 10px;
 }

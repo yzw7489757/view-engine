@@ -2,7 +2,7 @@ import { LayoutSchema, IViewData, ViewEngineProps } from '../interface';
 
 interface RenderBaseProps {
   viewData: IViewData, 
-  componentsMap: Record<string, React.FunctionComponent<any>>, 
+  componentsMap: Record<string, React.ReactNode>, 
   ctx: ViewEngineProps,
   viewMap: IViewData,
 }

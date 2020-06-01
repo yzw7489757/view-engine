@@ -8,6 +8,7 @@ function generatorSpecifyLayout(viewLayout: IViewLayout, viewMap: IViewData, pro
   let count = 24;
   Object.keys(viewLayout).forEach((key) => {
     const row = viewLayout[key];
+    const { customLabel } = row
     if (typeof row === 'string') {
       spanReg.lastIndex = 0
       const res = row.match(spanReg)
@@ -19,15 +20,18 @@ function generatorSpecifyLayout(viewLayout: IViewLayout, viewMap: IViewData, pro
       
       count -= span;
       layout.push({
-        title: item.label || '',
-        span: span || 6,
+        title: null,
+        label: (typeof customLabel === 'function'? customLabel(row) : item.label),
+        span: span || 24,
         name: keyName,
         className: `view-col-${keyName}`,
       })
     } else if (Array.isArray(row)) {
       layout.push({
-        title: '',
-        span: count,
+        title: null,
+        label: '',
+        name: null,
+        span: count || 24,
         className: 'view-row',
         children: generatorSpecifyLayout(row, viewMap, props)
       })
