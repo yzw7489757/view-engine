@@ -3,7 +3,7 @@ import _isEmpty from 'lodash/isEmpty';
 
 // 无指定span，即平分
 
-function generatorAutoLayout(viewData: IViewData,viewMap:IViewData, props: ViewEngineProps) {
+function generatorAutoLayout(viewData: IViewData,viewMap:IViewData, props: ViewEngineProps):Array<LayoutSchema> {
   const layout:Array<LayoutSchema> = []
 
   Object.keys(viewData).forEach(memberName => {
@@ -17,10 +17,10 @@ function generatorAutoLayout(viewData: IViewData,viewMap:IViewData, props: ViewE
       // 有children 即放弃本身属性，当前级仅做title用途
       layout.push({
         title: (item.customLabel? item.customLabel(item): item.label) || '',
-        name: null,
+        name: item.id || null,
         label: '',
         span: item.span || 24,
-        className: `view-engine-title view-title-${item.id || item.type}`,
+        className: `view-engine-field view-field-${item.id || item.type}`,
         children: generatorAutoLayout(item.children, viewMap, props)
       })
       return

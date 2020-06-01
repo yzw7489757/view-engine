@@ -24,17 +24,28 @@
       "eslint --fix"
     ]
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react-form",
+    "form-schema",
+    "json-schema",
+    "react-schema",
+    "react-json-schema",
+    "form-json-schema",
+    "react-form-schema",
+    "react-json-form-schema"
+  ],
+  "author": "yzw7489757",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/yzw7489757/view-engine/issues"
   },
   "homepage": "https://github.com/yzw7489757/view-engine#readme",
   "dependencies": {
-    "lodash": "^4.17.15",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "lodash": "^4.17.15"
+  },
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "antd": ">=3.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.0",
@@ -57,6 +68,8 @@
     "eslint-loader": "^4.0.2",
     "eslint-plugin-react": "^7.20.0",
     "less-loader": "^6.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "style-loader": "^1.2.1",
     "typescript": "^3.9.3",
     "webpack": "^4.43.0",

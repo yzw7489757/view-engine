@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col } from 'antd'
+import { Row } from 'antd'
 import RenderCol from './renderCol';
 import { IRenderRow } from './interface';
 import _Omit from 'lodash/omit'

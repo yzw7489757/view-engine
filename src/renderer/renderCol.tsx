@@ -1,6 +1,5 @@
 import React from 'react';
 import { Col } from 'antd'
-import { LayoutSchema, IViewData, ViewEngineProps } from '../interface';
 import { IRenderCol } from './interface';
 import RenderEl from './renderEl';
 import isEmpty from 'lodash/isEmpty';

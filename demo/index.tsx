@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import Demo from '../src/index'
+import Sider from './Sider';
 
-ReactDOM.render(<Demo 
+ReactDOM.render(<Sider 
   // viewLayout={
   //   [
   //     [
@@ -32,12 +33,14 @@ ReactDOM.render(<Demo
         field3: {
           type: 'text',
           label: 'label_field3',
+          span:8,
           props: {
             value: 'value_field3'
           }
         },
         field4:{
           type: 'text',
+          span:8,
           label: 'label_field4',
           props: {
             value: 'value_field4'
@@ -45,6 +48,7 @@ ReactDOM.render(<Demo
         },
         field5:{
           type: 'text',
+          span:8,
           label: 'label_field5',
           props: {
             value: 'value_field5'
@@ -92,4 +96,4 @@ ReactDOM.render(<Demo
         value: 'button',
       },
     },
-}}></Demo>, document.getElementById('root'))
+}}></Sider>, document.getElementById('root'))

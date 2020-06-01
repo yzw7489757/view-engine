@@ -1,5 +1,4 @@
 import React from 'react'
-import { IViewData, ViewEngineProps, LayoutSchema } from '../interface';
 import RenderRow from './renderRow';
 import { IRenderer } from './interface';
 import './index.less';
