@@ -1,9 +1,10 @@
-import { IViewData, ViewEngineProps, LayoutSchema } from '../interface';
+import { LayoutSchema } from '../interface';
 import _isEmpty from 'lodash/isEmpty';
+import { AutoLayout } from './interface';
 
 // 无指定span，即平分
 
-function generatorAutoLayout(viewData: IViewData,viewMap:IViewData, props: ViewEngineProps):Array<LayoutSchema> {
+const generatorAutoLayout: AutoLayout = (viewData, viewMap, props, layoutFunc) => {
   const layout:Array<LayoutSchema> = []
 
   Object.keys(viewData).forEach(memberName => {
@@ -20,8 +21,8 @@ function generatorAutoLayout(viewData: IViewData,viewMap:IViewData, props: ViewE
         name: item.id || null,
         label: '',
         span: item.span || 24,
-        className: `view-engine-field view-field-${item.id || item.type}`,
-        children: generatorAutoLayout(item.children, viewMap, props)
+        className: `view-field-${item.id || item.type}`,
+        children: generatorAutoLayout(item.children, viewMap, props, layoutFunc)
       })
       return
     }

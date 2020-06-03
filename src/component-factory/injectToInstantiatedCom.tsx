@@ -10,12 +10,12 @@ function injectToInstantiatedCom(
     return React.createElement(_Com, {...props})
   } else if(isFunctionComponent(_Com)) {
     try{
-      return _Com(props)
+      return _Com({...props})
     }catch(e){
       return <_Com {...props} />
     }
   } else if(typeof _Com === 'function') {
-    return _Com(props)
+    return _Com({...props})
   }
 
   return null

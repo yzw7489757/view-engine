@@ -25,14 +25,15 @@ export interface IViewData {
 }
 
 export interface IViewDataItem {
-  id?: string,
-  type?: keyof typeof presetComponents | string,
-  label?: string,
+  id?: string
+  type?: keyof typeof presetComponents | string
+  label?: string
   customLabel?: (props: IViewDataItem) => React.ReactNode;
-  span?: number,
-  props?: IViewDataItemProps & Record<string, any>,
-  children?: IViewData,
+  span?: number
+  props?: IViewDataItemProps & Record<string, any>
+  children?: IViewData
   hidden?: boolean
+  layout?: IViewLayout
 }
 
 export interface IViewDataItemProps {

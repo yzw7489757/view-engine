@@ -1,25 +1,23 @@
 import React from 'react';
 import { Col } from 'antd'
+import isEmpty from 'lodash/isEmpty';
 import { IRenderCol } from './interface';
 import RenderEl from './renderEl';
-import isEmpty from 'lodash/isEmpty';
 
 
 const RenderCol: IRenderCol = (props) => {
   const { data, colIndex, RenderRow, ...resetProps } = props;
-  return (
+
+  const hasChild = Array.isArray(data.children) && !isEmpty(data.children)
+
+  if (hasChild) return (
+    <Col key={colIndex} span={data.span} className={data.className}>
+       { RenderRow({ ...resetProps, rowIndex: colIndex, data }) }
+    </Col>
+  )
+  return data.name === null ? null : (
     <Col key={colIndex} span={data.span} className={`${data.className} col-${data.name}`}>
-      {
-        Array.isArray(data.children) && !isEmpty(data.children) ? 
-        RenderRow({
-          ...resetProps,
-          rowIndex: colIndex,
-          data
-        }) : RenderEl({
-          data, 
-          ...resetProps,
-        })
-      }
+       { RenderEl({ data,  ...resetProps }) }
     </Col>
   )
 }

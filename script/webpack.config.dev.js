@@ -10,6 +10,7 @@ module.exports = {
     index: resolve(__dirname, '../src/index.tsx')
   },
   devServer: {
+    historyApiFallback: true,
     disableHostCheck: true,
     contentBase: resolve(__dirname, '../demo'),
     https: !!process.env.HTTPS,

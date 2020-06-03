@@ -22,6 +22,7 @@
   "rules": {
     "@typescript-eslint/interface-name-prefix": 0,
     "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/ban-types":0,
     "@typescript-eslint/camelcase": 0,
     "@typescript-eslint/no-empty-function": 1,
     "@typescript-eslint/explicit-function-return-type": 0
