@@ -8,9 +8,9 @@ const index = () => {
         viewLayout={
           [
             [
-              'field1{6}', 
               'field2{12}', 
               'field2{12}', 
+              'field1{20}', 
               'field3', 
               [
                 'field4{8}', 'field5{8}', 'field6{8}'

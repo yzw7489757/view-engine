@@ -46,7 +46,7 @@ class ViewEngine extends React.Component<ViewEngineProps, {
 
   handleChange: IEventHandler = (id, diffs, componentName, itemProps) => {
     const { onChange, viewData } = this.props;
-
+    console.log(diffs.value)
     onChange(id, { value: diffs.value || itemProps.value }, componentName, itemProps, viewData)
   }
 

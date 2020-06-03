@@ -5,4 +5,4 @@ import UI from './UI';
 Material({
   title: 'View Engine',
   routes: UI
-})
+},document.getElementById('root'))

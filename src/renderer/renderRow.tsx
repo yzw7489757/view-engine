@@ -23,7 +23,7 @@ const RenderRow: IRenderRow = (props) => {
   }
 
   return (
-    <Row key={rowIndex} align="middle" className={data.className}>
+    <Row key={rowIndex} className={data.className}>
       {title}
       {colContent}
       {

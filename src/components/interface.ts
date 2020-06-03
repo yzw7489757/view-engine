@@ -9,7 +9,7 @@ export type BaseComponentProps<T> = Partial<IViewDataItemProps & Omit<IViewDataI
 
 export type IText = BaseComponentProps<TextAreaProps>;
 export type ITextArea = BaseComponentProps<TextAreaProps>;
-export type IInput = BaseComponentProps<InputProps>;
+export type IInput = BaseComponentProps<Omit<InputProps, 'value'> & { value: string | number | undefined }>;
 export type ISelect = BaseComponentProps<SelectProps<SelectValue>>;
 export type IInputNumber = BaseComponentProps<InputNumberProps>;
 export type IButton = BaseComponentProps<ButtonProps>;
