@@ -7,10 +7,12 @@ import { TagProps } from 'antd/lib/tag';
 
 export type BaseComponentProps<T> = Partial<IViewDataItemProps & Omit<IViewDataItem, 'props'> & T>
 
-export type IText = BaseComponentProps<TextAreaProps>;
-export type ITextArea = BaseComponentProps<TextAreaProps>;
-export type IInput = BaseComponentProps<InputProps>;
-export type ISelect = BaseComponentProps<SelectProps<SelectValue>>;
-export type IInputNumber = BaseComponentProps<InputNumberProps>;
+export type PlainValue<T> = Omit<T, 'value'> & { value: string | number | undefined }
+
+export type IText = PlainValue<BaseComponentProps<TextAreaProps>>;
+export type ITextArea = PlainValue<BaseComponentProps<TextAreaProps>>;
+export type IInput = PlainValue<BaseComponentProps<InputProps>>;
+export type ISelect = PlainValue<BaseComponentProps<SelectProps<SelectValue>>>;
+export type IInputNumber = PlainValue<BaseComponentProps<InputNumberProps>>;
 export type IButton = BaseComponentProps<ButtonProps>;
 export type ITag = BaseComponentProps<TagProps>;

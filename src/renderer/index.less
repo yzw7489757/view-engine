@@ -1,28 +1,38 @@
 @import '../components/index.less';
-
-.view-element{
-  display: flex;
-  .view-label{
-    position: relative;
-    min-width: 80px;
-    text-align: left;
-    margin-right: 8px;
-    color: #999;
-    align-self: center;
-    &:empty {
-      display: none;;
+.view-engine{
+  .ant-row {
+    // padding: 5px 10px;
+    // &.row-less {
+    //   padding: 0;
+    // }
+  }
+  .view-element{
+    display: flex;
+    align-items: baseline;
+    .view-label{
+      position: relative;
+      min-width: 80px;
+      text-align: left;
+      margin-right: 8px;
+      color: #999;
+      &:empty {
+        display: none;;
+      }
+    }
+    .view-content{
+      flex: 1;
+    }
+    &-textarea {
+      align-items: center;
     }
   }
-  .view-content{
-    flex: 1;
+  
+  .view-title{
+    width: 100%;
   }
-}
-
-.view-title{
-  width: 100%;
-}
-
-.view-engine-field{
-  padding: 3px 10px;
-  margin-bottom: 10px;
+  
+  .view-engine-field{
+    padding: 3px 10px;
+    margin-bottom: 10px;
+  }
 }

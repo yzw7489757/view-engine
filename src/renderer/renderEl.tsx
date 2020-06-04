@@ -2,6 +2,7 @@ import React from 'react'
 import { IRenderEl } from './interface';
 import injectToInstantiatedCom from '../component-factory/injectToInstantiatedCom';
 import _Omit from 'lodash/omit';
+// import FormItem from '../components/form-item';
 
 const RenderEl:IRenderEl = (props) => {
   const { viewMap, data, componentsMap } = props
@@ -19,9 +20,9 @@ const RenderEl:IRenderEl = (props) => {
 
   return (
     <div className={`view-element view-element-${type} view-element-${data.name}`}>
-      { data.label && <span className="view-label">{data.label}:</span> }
+      { data.label && (React.isValidElement(data.label) ? data.label : <span className="view-label">{data.label}:</span>) }
       <span className="view-content">
-        { injectToInstantiatedCom(_Com, {...schemaMemberConf.props, ..._Omit(schemaMemberConf, 'props')}) }
+          { injectToInstantiatedCom(_Com, {...schemaMemberConf.props, ..._Omit(schemaMemberConf, 'props')}) }
       </span>
     </div>
   )
