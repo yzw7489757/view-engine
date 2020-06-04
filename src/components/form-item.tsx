@@ -1,21 +1,19 @@
-import * as React from 'react';
-import { Form } from 'antd';
+import React, { ReactElement } from 'react';
+import { Form } from 'antd'
+import { ValidateStatus } from 'antd/lib/form/FormItem';
 
-const { Item } = Form;
+const FormItem: React.SFC<{ 
+  help: string | number | undefined, 
+  status: ValidateStatus, 
+  showValidatorMsg: boolean 
+}> = ({ children, help, status, showValidatorMsg }) => {
+  if(showValidatorMsg === false) return children as ReactElement
 
-interface IFormItemProps {
-  value: string | undefined | number | null;
-}
-
-const FormItem: React.SFC<IFormItemProps> = (props) => {
-  const { children, value } = props
   return (
-    <Item help={value} validateStatus={value? "error" : ''}>
-      { 
-        React.Children.map(children, child => child) 
-      }
-    </Item>
+    <Form.Item help={help} validateStatus={status}>
+      { children }
+    </Form.Item>
   );
-};
+}
 
 export default FormItem;

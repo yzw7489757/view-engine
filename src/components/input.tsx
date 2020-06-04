@@ -1,18 +1,14 @@
 import React from 'react';
 import { Input } from 'antd';
 import { IInput } from './interface';
-import FormItem from './form-item';
+// import FormItem from './form-item'
 
 export const input:React.SFC<IInput> = (props) => {
   const { value, onChange, className, id, type, ...resetProps } = props;
-  return (
-      <FormItem value={value}>
-        <Input
-          defaultValue={value}
-          onChange={onChange}
-          className={`view-engine-input component-input-${id || type} ${className || ''}`}
-          {...resetProps}
-        />
-      </FormItem>
-  )
+  return  <Input
+            defaultValue={value}
+            onChange={onChange}
+            className={`view-engine-input component-input-${id || type} ${className || ''}`}
+            {...resetProps}
+          />
 }

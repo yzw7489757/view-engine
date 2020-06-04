@@ -17,7 +17,6 @@ const generatorLayout: IGeneratorLayout = (viewMap, viewLayout, props) => {
   } else { // 未指定，自动生成
     layout = generatorAutoLayout(props.viewData, viewMap, props, layoutFunc)
   }
-  console.log('layout: ', layout);
   return layout
 }
 

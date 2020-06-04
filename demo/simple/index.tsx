@@ -3,7 +3,6 @@ import Demo from '../../src/index'
 
 const index = () => {
   return (
-    <div>
       <Demo 
         viewLayout={
           [
@@ -104,7 +103,6 @@ const index = () => {
             },
           },
       }}></Demo>
-    </div>
   );
 }
 

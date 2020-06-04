@@ -1,8 +1,6 @@
-
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { Material } from 'dev-dashboard';
 import UI from './UI';
 
-Material({
-  title: 'View Engine',
-  routes: UI
-},document.getElementById('root'))
+ReactDOM.render(<Material title='View Engine' routes={UI}/>, document.getElementById('root'))
