@@ -1,10 +1,17 @@
 {
-  "name": "view-engine",
+  "name": "atom-view-engine",
   "version": "1.0.0",
   "description": "表单域视图引擎",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "start": "webpack-dev-server --config script/webpack.config.dev.js --open-page '?mock=true'",
+    "start": "webpack-dev-server --config script/webpack.config.dev.js --open-page",
+    "build:umd": "cross-env BUILD_ENV=true webpack --config script/webpack.config.umd.js --hide-modules --progress --colors",
+    "build:typings": "tsc -p tsconfig.json",
+    "build": "rm -rf ./lib/* && npm run build:umd && npm run build:typings",
+    "release": "standard-version --release-as",
+    "publish:major": "npm run build && npm run release -- major && npm publish",
+    "publish:minor": "npm run build && npm run release -- minor && npm publish",
+    "publish:patch": "npm run build && npm run release -- patch && npm publish",
     "https": "HTTPS=true npm start",
     "lint": "eslint --quiet ./src",
     "lint:fix": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
@@ -24,6 +31,15 @@
       "eslint --fix"
     ]
   },
+  "files": [
+    "lib"
+  ],
+  "precommit.silent": true,
+  "pre-commit": [
+    "lint",
+    "build:typings",
+    "test"
+  ],
   "keywords": [
     "react-form",
     "form-schema",
@@ -40,12 +56,10 @@
     "url": "https://github.com/yzw7489757/view-engine/issues"
   },
   "homepage": "https://github.com/yzw7489757/view-engine#readme",
-  "dependencies": {
-    "lodash": "^4.17.15"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": ">=16.0.0",
-    "antd": ">=3.12.0"
+    "antd": ">=4.0.1"
   },
   "devDependencies": {
     "@ant-design/icons": "^4.2.1",
@@ -63,18 +77,15 @@
     "@types/webpack": "^4.41.13",
     "@typescript-eslint/eslint-plugin": "^3.1.0",
     "@typescript-eslint/parser": "^3.1.0",
-    "antd": "^4.2.5",
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
     "dev-dashboard": "^2.0.6",
     "eslint": "^7.1.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-react": "^7.20.0",
     "less-loader": "^6.1.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0",
     "style-loader": "^1.2.1",
     "typescript": "^3.9.3",
     "webpack": "^4.43.0",
