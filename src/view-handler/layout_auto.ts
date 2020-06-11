@@ -21,7 +21,7 @@ const generatorAutoLayout: AutoLayout = (viewData, viewMap, props, layoutFunc) =
         name: item.id || null,
         label: '',
         span: item.span || 24,
-        className: `view-field-${item.id || item.type}`,
+        className: `view-engine-field view-field-${item.id || item.type}`,
         children: generatorAutoLayout(item.children, viewMap, props, layoutFunc)
       })
       return

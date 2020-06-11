@@ -7,6 +7,7 @@ export default function handleViewData(viewData: IViewData):IViewData {
   forEach(_viewData, (key: string, item: IViewDataItem) => {
     item.id = key;
     item.props = item.props || {}
+    item.props.value = item.props.value || undefined;
   })
   return _viewData
 }

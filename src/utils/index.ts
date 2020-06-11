@@ -31,5 +31,5 @@ export function toNumber(n: string | number | undefined | null | Record<string, 
 
   if(typeof n === 'number' && isNaN(n) || isNaN(parseFloat(n as string))) return 0;
   
-  return parseFloat(n)
+  return parseFloat(n as string)
 }

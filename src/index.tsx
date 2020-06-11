@@ -5,7 +5,6 @@ import generatorLayout from './view-handler/generatorLayout';
 import generatorViewMap from './view-handler/generatorData';
 import Renderer from './renderer/index';
 import handleViewData from './utils/handleViewData';
-import 'antd/dist/antd.css';
 
 class ViewEngine extends React.Component<ViewEngineProps, {
   componentsMap: Record<string, React.ReactNode>,

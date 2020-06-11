@@ -28,7 +28,7 @@ const RenderRow: IRenderRow = (props) => {
       {colContent}
       {
         hasChild ? (data.children || []).map((col, colIndex) => {
-          return RenderCol({ data: col, colIndex, ...resetProps, RenderRow: RenderRow })
+          return RenderCol({ data: col, colIndex, ...resetProps, RenderRow })
         }) : null
       }
     </Row>

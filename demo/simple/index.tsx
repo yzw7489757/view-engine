@@ -4,26 +4,30 @@ import Demo from '../../src/index'
 const index = () => {
   return (
       <Demo 
-        viewLayout={
-          [
-            [
-              'field2{12}', 
-              'field2{12}', 
-              'field1{20}', 
-              'field3', 
-              [
-                'field4{8}', 'field5{8}', 'field6{8}'
-              ],
-              [
-                'field7{8}', 'field8{8}', 'field9{8}'
-              ],
-              [
-                'field6{8}', 'field9{8}','field10{8}'
-              ]
-            ],
-            ['field2', 'field1', 'field8']
-          ]
-        }
+        onChange={(...args) => {
+          console.log(args)
+        }}
+        // onSubmit={(...args) => {
+
+        // }}
+        // viewLayout={[
+        //   [
+        //     'field2{12}', 
+        //     'field2{12}', 
+        //     'field1{20}', 
+        //     'field3', 
+        //     [
+        //       'field4{8}', 'field5{8}', 'field6{8}'
+        //     ],
+        //     [
+        //       'field7{8}', 'field8{8}', 'field9{8}'
+        //     ],
+        //     [
+        //       'field6{8}', 'field9{8}','field10{8}'
+        //     ]
+        //   ],
+        //   ['field2', 'field1', 'field8']
+        // ]}
         viewData={{
           field1: {
             type: 'input',
