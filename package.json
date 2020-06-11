@@ -1,6 +1,6 @@
 {
   "name": "atom-view-engine",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "表单域视图引擎",
   "main": "lib/index.js",
   "scripts": {
