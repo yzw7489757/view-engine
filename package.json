@@ -4,7 +4,7 @@
   "description": "表单域视图引擎",
   "main": "lib/index.js",
   "scripts": {
-    "start": "webpack-dev-server --config script/webpack.config.dev.js --open-page",
+    "start": "webpack-dev-server --config script/webpack.config.dev.js",
     "build:umd": "cross-env BUILD_ENV=true webpack --config script/webpack.config.umd.js --hide-modules --progress --colors",
     "build:typings": "tsc -p tsconfig.json",
     "build": "rm -rf ./lib/* && npm run build:umd && npm run build:typings",

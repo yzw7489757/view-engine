@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
   resolve: {
     extensions: ['.ts', '.js', '.tsx', '.jsx']
@@ -58,36 +60,11 @@ module.exports = {
   },
   
   externals: {
-    react: {
-      root: 'React',
-      commonjs2: 'react',
-      commonjs: 'react',
-      amd: 'react',
-    },
-    'react-dom': {
-      root: 'ReactDOM',
-      commonjs2: 'react-dom',
-      commonjs: 'react-dom',
-      amd: 'react-dom',
-    },
-    'react-router-dom': {
-      root: 'ReactRouterDOM',
-      commonjs2: 'react-router-dom',
-      commonjs: 'react-router-dom',
-      amd: 'ReactRouterDOM',
-    },
-    'lodash': {
-      root: '_',
-      commonjs2: 'lodash',
-      commonjs: 'lodash',
-      amd: 'lodash',
-    },
-    antd: {
-      root: 'antd',
-      commonjs2: 'antd',
-      commonjs: 'antd',
-      amd: 'antd',
-    },
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    'react-router-dom': 'ReactRouterDOM',
+    'lodash': 'lodash',
+    antd: 'antd',
     'moment': 'moment',
     'moment/locale/zh-cn' : 'moment.locale',
   },
