@@ -14,23 +14,22 @@ const RenderRow: IRenderRow = (props) => {
   
   const hasChild = Array.isArray(data.children) && !isEmpty(data.children);
 
-  if (data.title) {
-    title = <Col span={24} className={data.className}>
-              <h3 className={`view-title view-title-${data.name}`}>{data.title}</h3>
-            </Col>
+  if (data.title || data.children) {
+    title = data.title ? <Col span={24} className='ve-title'>
+              <h4 className={`ve-title-${data.name}`}>{data.title}</h4>
+            </Col> : null;
+    colContent = data.children.map((col, colIndex) => RenderCol({ data: col, colIndex, ...resetProps, RenderRow }))
   } else {
-    colContent = RenderCol({ data: _Omit(data, 'children'), colIndex: 0, ...resetProps, RenderRow: RenderRow })
+    colContent = RenderCol({ data: _Omit(data, 'children'), colIndex: 0, ...resetProps, RenderRow })
   }
 
   return (
-    <Row key={rowIndex} className={data.className}>
+    <Row key={rowIndex} className={`ve-row ${hasChild ? data.className : ''}`}>
       {title}
       {colContent}
-      {
-        hasChild ? (data.children || []).map((col, colIndex) => {
-          return RenderCol({ data: col, colIndex, ...resetProps, RenderRow })
-        }) : null
-      }
+      {/* {
+        hasChild ? data.children.map((col, colIndex) => RenderCol({ data: col, colIndex, ...resetProps, RenderRow })) : null
+      } */}
     </Row>
   )
 }

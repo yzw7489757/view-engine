@@ -1,5 +1,3 @@
-const webpack = require('webpack');
-
 module.exports = {
   resolve: {
     extensions: ['.ts', '.js', '.tsx', '.jsx']
@@ -64,8 +62,6 @@ module.exports = {
     'react-dom': 'ReactDOM',
     'react-router-dom': 'ReactRouterDOM',
     'lodash': 'lodash',
-    antd: 'antd',
-    'moment': 'moment',
-    'moment/locale/zh-cn' : 'moment.locale',
+    antd: 'antd'
   },
 }

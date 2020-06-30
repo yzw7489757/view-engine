@@ -1,15 +1,13 @@
 import React from 'react';
+// import isEqual from 'lodash/isEqual'
 import InjectEvents from './component-factory/generatorComponentMap';
-import { IEventsMap, IEventHandler, IViewData, ViewEngineProps } from './interface';
+import { IEventsMap, IEventHandler, IViewData, ViewEngineProps, ViewEngineState } from './interface';
 import generatorLayout from './view-handler/generatorLayout';
 import generatorViewMap from './view-handler/generatorData';
 import Renderer from './renderer/index';
 import handleViewData from './utils/handleViewData';
 
-class ViewEngine extends React.Component<ViewEngineProps, {
-  componentsMap: Record<string, React.ReactNode>,
-  resetKey: number
-}> {
+class ViewEngine extends React.Component<ViewEngineProps, ViewEngineState> {
 
   viewMap: IViewData = {};
 
@@ -35,17 +33,19 @@ class ViewEngine extends React.Component<ViewEngineProps, {
     return InjectEvents<ViewEngineProps['customComponents']>(customComponents, eventHandlerMap)
   }
 
-  handleClick:IEventHandler = this.props.onClick;
+  handleClick:IEventHandler = (id, diffs, componentName, itemProps) => {
+    this.props.onClick(id, diffs, componentName, itemProps)
+  };
 
   handleSubmit: IEventHandler = (id, diffs, componentName, itemProps) => {
-    const { onSubmit, viewData } = this.props;
-    this.handleChange(id, diffs, componentName, itemProps)
-    onSubmit(diffs, viewData)
+    const { onSubmit } = this.props;
+    this.handleChange(id, diffs, componentName, itemProps);
+
+    onSubmit(id, diffs, componentName, itemProps)
   }
 
   handleChange: IEventHandler = (id, diffs, componentName, itemProps) => {
     const { onChange, viewData } = this.props;
-    console.log(diffs.value)
     onChange(id, { value: diffs.value || itemProps.value }, componentName, itemProps, viewData)
   }
 
@@ -55,14 +55,22 @@ class ViewEngine extends React.Component<ViewEngineProps, {
     })
   }
 
+  // static getDerivedStateFromProps(nextProps: ViewEngineProps, prevState: ViewEngineState) {
+  //   if(isEqual(nextProps.viewData, prevState.componentsMap)) {
+
+  //   }
+  //   return null
+  // }
+  
+
   render() {
+    console.log('=============== rerender')
     const { componentsMap, resetKey } = this.state
     const { className, style, viewData: _viewData, viewLayout } = this.props
     const viewData = handleViewData(_viewData)
     this.viewMap = generatorViewMap(viewData, this.props);
-    console.log('this.viewMap: ', this.viewMap);
     this.layout = generatorLayout(this.viewMap, viewLayout, {...this.props, viewData})
-    console.log('layout: ',this.layout);
+    console.log('this.layout: ', this.layout);
     return (
       <div key={resetKey} className={`view-engine ${className}`} style={style}>
         {Renderer({

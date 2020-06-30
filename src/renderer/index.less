@@ -1,38 +1,44 @@
 @import '../components/index.less';
 .view-engine{
+  box-sizing: border-box;
   .ant-row {
-    // padding: 5px 10px;
-    // &.row-less {
-    //   padding: 0;
-    // }
+    padding: 3px 0;
+    &.row-less {
+      padding: 0;
+    }
   }
-  .view-element{
+  .ve-element{
     display: flex;
-    align-items: baseline;
-    .view-label{
+    align-items: center;
+    .ve-label{
       position: relative;
       min-width: 80px;
       text-align: left;
       margin-right: 8px;
       color: #999;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       &:empty {
         display: none;;
       }
     }
-    .view-content{
-      flex: 1;
+    .ve-content{
+      flex: 1 auto;
     }
     &-textarea {
       align-items: center;
     }
   }
   
-  .view-title{
-    width: 100%;
+  .ve-title{
+    &-field{
+      width: 100%;
+    }
   }
   
-  .view-engine-field{
-    padding: 3px 10px;
-    margin-bottom: 10px;
+  .ve-field{
+    // padding: 3px 10px;
+    margin: 5px 0;
   }
 }

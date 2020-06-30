@@ -1,8 +1,8 @@
 import * as presetComponents from '../components/index'
-import { IEventsMap, DiffViewData } from '../interface';
+import { IEventsMap, DiffViewData, IViewDataItemProps } from '../interface';
 import injectToInstantiatedCom from './injectToInstantiatedCom';
 
-function InjectEvents (componentName: string, itemProps, eventHandleMap: IEventsMap) {
+function InjectEvents (componentName: string, itemProps: IViewDataItemProps & { id: string }, eventHandleMap: IEventsMap) {
   const { id } = itemProps;
   const { handleChange, handleSubmit, handleClick } = eventHandleMap;
   return {
@@ -14,8 +14,8 @@ function InjectEvents (componentName: string, itemProps, eventHandleMap: IEvents
       const v = (typeof e === 'object' && e.target && e.clientX && e.clientY) ? e.target : e
       handleClick(id, { value: v }, componentName, itemProps);
     },
-    onSubmit: function(diffs: DiffViewData) {
-      handleSubmit(id, diffs, componentName, itemProps)
+    onSubmit: function(values: DiffViewData) {
+      handleSubmit(id, values, componentName, itemProps)
     }
   }
 }

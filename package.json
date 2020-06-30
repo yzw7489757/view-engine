@@ -56,7 +56,9 @@
     "url": "https://github.com/yzw7489757/view-engine/issues"
   },
   "homepage": "https://github.com/yzw7489757/view-engine#readme",
-  "dependencies": {},
+  "dependencies": {
+    "typescript": "^3.9.5"
+  },
   "peerDependencies": {
     "react": ">=16.0.0",
     "antd": ">=4.0.1"

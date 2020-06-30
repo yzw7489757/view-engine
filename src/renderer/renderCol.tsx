@@ -16,7 +16,7 @@ const RenderCol: IRenderCol = (props) => {
     </Col>
   )
   return data.name === null ? null : (
-    <Col key={colIndex} span={data.span} className={`${data.className} col-${data.name}`}>
+    <Col key={colIndex} span={data.span} className={data.className}>
        { RenderEl({ data,  ...resetProps }) }
     </Col>
   )

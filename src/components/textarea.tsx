@@ -9,8 +9,6 @@ export const textarea:React.SFC<ITextArea> = (props) => {
   return <Input.TextArea
     defaultValue={value}
     onChange={onChange}
-    rows={5}
-    autoSize={{minRows: 1, maxRows: 10}}
     className={`view-engine-textarea component-textarea-${id || type} ${className || ''}`}
     {...resetProps}
   />

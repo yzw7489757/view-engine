@@ -1,4 +1,3 @@
-import React from 'react'
 import RenderRow from './renderRow';
 import { IRenderer } from './interface';
 import './index.less';

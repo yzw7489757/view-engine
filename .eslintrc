@@ -5,7 +5,8 @@
   ],
   "plugins": ["@typescript-eslint", "react"],
   "env":{                         
-      "browser": true
+      "browser": true,
+      "node": true
   },
   "settings": {
       "react": {
@@ -13,10 +14,10 @@
       }
   }, 
   "parserOptions": { 
-      "ecmaVersion": 2020,
+      "ecmaVersion": 2019,
       "sourceType": "module",
       "ecmaFeatures":{
-          "jsx":true
+          "jsx": true
       }
   },
   "rules": {

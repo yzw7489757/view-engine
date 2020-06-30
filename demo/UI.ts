@@ -1,5 +1,6 @@
-import simple from './simple';
 import { WindowsOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
+import simple from './simple';
+import WithForm from './form/index';
 
 export default [
   {
@@ -7,5 +8,11 @@ export default [
     path: '/autolayout',
     icon: WindowsOutlined,
     component: simple
+  },
+  {
+    name: 'form实例',
+    path: '/form',
+    icon: 'StarFilled',
+    component: WithForm
   }
 ]

@@ -2,9 +2,9 @@ import noop from 'lodash/noop';
 import * as presetComponents from './components/index'
 
 export class ViewEngineProps {
-  public onClick: (...args: any[]) => void = noop
-  public onSubmit: (...args: any[]) => void = noop
-  public onChange: (...args: any[]) => void = noop
+  public onClick: (id: string, diffs: IViewDataItemProps, componentName: string, itemProps: IViewDataItemProps)=> void = noop
+  public onSubmit: (id: string, diffs: IViewDataItemProps, componentName: string, itemProps: IViewDataItemProps)=> void = noop
+  public onChange: (id: string, diffs: IViewDataItemProps, componentName: string, itemProps: IViewDataItemProps, viewData: IViewData) => void = noop
   public customComponents: Record<string, React.ReactNode> = {}
   public viewData: IViewData = {};
   public viewLayout: IViewLayout = [];
@@ -22,6 +22,11 @@ export interface IEventsMap {
 
 export interface IViewData {
   [id: string]: IViewDataItem,
+}
+
+export interface ViewEngineState {
+  componentsMap: Record<string, React.ReactNode>,
+  resetKey: number
 }
 
 export interface IViewDataItem {

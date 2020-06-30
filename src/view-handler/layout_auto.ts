@@ -21,7 +21,7 @@ const generatorAutoLayout: AutoLayout = (viewData, viewMap, props, layoutFunc) =
         name: item.id || null,
         label: '',
         span: item.span || 24,
-        className: `view-engine-field view-field-${item.id || item.type}`,
+        className: `ve-group-${item.id || item.type}`,
         children: generatorAutoLayout(item.children, viewMap, props, layoutFunc)
       })
       return
@@ -32,7 +32,7 @@ const generatorAutoLayout: AutoLayout = (viewData, viewMap, props, layoutFunc) =
       label: item.label || '',
       name: <string>item.id,
       span: item.span || 24,
-      className: `view-engine-field view-field-${item.id || item.type}`,
+      className: `ve-field ve-field-${item.id || item.type}`,
       children: []
     })
   })

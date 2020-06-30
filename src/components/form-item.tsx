@@ -7,8 +7,8 @@ const FormItem: React.SFC<{
   status: ValidateStatus, 
   showValidatorMsg: boolean 
 }> = ({ children, help, status, showValidatorMsg }) => {
-  if(showValidatorMsg === false) return children as ReactElement
 
+  if(showValidatorMsg === false) return children as ReactElement
   return (
     <Form.Item help={help} validateStatus={status}>
       { children }
