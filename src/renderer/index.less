@@ -9,7 +9,7 @@
   }
   .ve-element{
     display: flex;
-    align-items: center;
+    align-items: baseline;
     .ve-label{
       position: relative;
       min-width: 80px;
@@ -25,6 +25,9 @@
     }
     .ve-content{
       flex: 1 auto;
+      & > .ant-form-item {
+        margin: 0;
+      }
     }
     &-textarea {
       align-items: center;

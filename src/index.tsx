@@ -40,7 +40,6 @@ class ViewEngine extends React.Component<ViewEngineProps, ViewEngineState> {
   handleSubmit: IEventHandler = (id, diffs, componentName, itemProps) => {
     const { onSubmit } = this.props;
     this.handleChange(id, diffs, componentName, itemProps);
-
     onSubmit(id, diffs, componentName, itemProps)
   }
 

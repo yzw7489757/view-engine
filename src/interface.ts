@@ -46,7 +46,8 @@ export interface IViewDataItemProps {
   disable?: boolean;
   className?: string,
   style?: React.CSSProperties,
-  options?: Array<Record<string, string | number>>
+  options?: Array<Record<string, string | number>>,
+  errorMsg?: string
 }
 
 // type Recursive<T> = | T | Array<Recursive<T>>;

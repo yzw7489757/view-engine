@@ -20,14 +20,18 @@ const WithForm = () => {
     const newData = de.current.updateProps({
       [keyName]: diffs,
       field10: {
-          value: Date.now()
+          value: Date.now(),
+          errorMsg: Date.now()+''
       }
     })
+    // newData = de.current.updateAttr({
+    //   [keyName]: {
+    //     errorMsg: ''
+    //   }
+    // })
+    // console.log(de.current.getParams())
     setViewData(newData)
-    // console.log('newData: ', newData);
   }
-
-  
 
   return (
       <ViewEngine 

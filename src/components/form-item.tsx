@@ -1,16 +1,17 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { Form } from 'antd'
 import { ValidateStatus } from 'antd/lib/form/FormItem';
+import { IViewDataItemProps } from '../interface';
 
 const FormItem: React.SFC<{ 
-  help: string | number | undefined, 
-  status: ValidateStatus, 
-  showValidatorMsg: boolean 
-}> = ({ children, help, status, showValidatorMsg }) => {
-
-  if(showValidatorMsg === false) return children as ReactElement
+  status?: ValidateStatus, 
+  showValidatorMsg?: boolean 
+} & IViewDataItemProps > = ({ children, status = '', showValidatorMsg, errorMsg }) => {
   return (
-    <Form.Item help={help} validateStatus={status}>
+    <Form.Item
+      validateStatus={ (showValidatorMsg !== false && errorMsg) ? 'error': status}
+      help={(showValidatorMsg !== false && errorMsg) ? errorMsg : ''}
+    >
       { children }
     </Form.Item>
   );
